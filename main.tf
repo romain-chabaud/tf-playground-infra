@@ -1,3 +1,4 @@
+# database
 resource "google_sql_database_instance" "shared_database_instance" {
   name             = "shared-database-instance"
   database_version = "POSTGRES_14"
@@ -10,4 +11,9 @@ resource "google_sql_database_instance" "shared_database_instance" {
       }
     }
   }
+}
+
+# secret manager
+resource "google_project_service" "secret_manager_enabler" {
+  service = "secretmanager.googleapis.com"
 }
